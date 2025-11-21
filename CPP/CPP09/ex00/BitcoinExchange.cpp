@@ -6,7 +6,7 @@
 /*   By: tpipi <tpipi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 21:16:30 by tpipi             #+#    #+#             */
-/*   Updated: 2025/10/21 12:28:54 by tpipi            ###   ########.fr       */
+/*   Updated: 2025/11/21 01:22:51 by tpipi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -146,6 +146,13 @@ int ft_bitcoin_exchange(char *input)
 			
 			exchangeRateForDate.insert(std::pair<std::string, std::string>(date, exchangeRate));
 			nbLine++;
+		}
+
+		if (exchangeRate.empty()) {
+				std::cerr << "Error: database is empty." << std::endl;
+				fin.close();
+				fcsv.close();
+				return 1;
 		}
 
 		nbLine = 0;
